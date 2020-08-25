@@ -18,7 +18,7 @@ int mapgen_process();
 int main(){
 
     image_file = fopen("mapdata.png", "r");
-    map_file   = fopen("../docs/resources/mapdata.pcmap", "w");
+    map_file   = fopen("../docs/resources/mapdata.txt", "w");
 
     if(image_file == NULL || map_file == NULL){
         printf("Failed to open file.\n");

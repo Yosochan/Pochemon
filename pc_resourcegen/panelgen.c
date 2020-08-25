@@ -12,7 +12,11 @@ png_bytep   row;
 int panelgen_process(int, int);
 
 int main(){
+
+    FILE *details_file;
+
     image_file = fopen("paneldata.png", "r");
+    details_file = fopen("../docs/resources/paneldetails.txt", "w");
 
     if(image_file == NULL){
         printf("Failed to open file.\n");
@@ -26,11 +30,15 @@ int main(){
             panelgen_process(ix, iy);
         }
     }
+
+    fprintf(details_file, "%dx%d", image_width/PANEL_WH, image_height/PANEL_WH);
     
     png_write_end(panel_image, NULL);
     png_free_data(panel_image, panel_info, PNG_FREE_ALL, -1);
     png_destroy_write_struct(&panel_image, (png_infopp)NULL);
     free(row);
+
+    fclose(details_file);
 
     free_process();   
 }
