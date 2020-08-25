@@ -38,7 +38,7 @@ int main(){
 int panelgen_process(int x, int y){
     
     char file_name[256] = {'\0'};
-    sprintf(file_name, "../resources/panel/0_%d_%d.png", x/PANEL_WH, y/PANEL_WH);
+    sprintf(file_name, "../docs/resources/panel/0_%d_%d.png", x/PANEL_WH, y/PANEL_WH);
     FILE *target_file = fopen(file_name, "w");
 
     if(target_file == NULL){
