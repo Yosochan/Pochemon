@@ -28,13 +28,15 @@ void format_panel(char *target, mapgen_panel_container *cont, int adress){
             value /= 16;
         }
 
+        target[point++] = hexchar(cont[adress].panel[i].collision);
+
         value = cont[adress].panel[i].depth;
         for(int j=0; j<2; j++){
             int n = value%16;
             target[point++] = hexchar(n);
             value /= 16;
         }
-        target[point++] = hexchar(cont[adress].panel[i].collision);
+        
         if(i != PANEL_SEGMENTS_IN_DATA-1) target[point++] = ',';
     }
 

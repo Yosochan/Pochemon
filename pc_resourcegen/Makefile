@@ -10,4 +10,3 @@ panelgen:
 	gcc panelgen.c -o panelgen -lpng
 	./panelgen
 	rm -r panelgen
-

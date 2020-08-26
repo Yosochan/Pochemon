@@ -1,7 +1,7 @@
 
 
 #define PANEL_DATA_SIZE 25
-#define PANEL_SEGMENTS_IN_DATA 3
+#define PANEL_SEGMENTS_IN_DATA 5
 
 #define PANEL_VOID 0x00
 
