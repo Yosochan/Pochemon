@@ -19,30 +19,36 @@ mapgen_rule rules[RULES_NUM] = {
 };
 
 void rule_119_181_133(RULE_ARG(cont, x, y)){ // 森
-    if(y != 0 && (image_data[y][x*4] == image_data[y-1][x*4]) ){
-        container_insert(cont, x, y-1, 0x050, 0x02, 0);
-        container_insert(cont, x, y  , 0x051, 0x01, 0);
+    if(y != 0){
+        panel_container_insert(cont, x, y-1, 0x050, 0x06, 0);
     }
-    else{
-        container_insert(cont, x, y  , 0x020, 0x01, 0);
-    }
-    container_insert(cont, x, y  , 0x076, 0x00, 1);
+    panel_container_insert(cont, x, y  , 0x051, 0x05, 0);
+    panel_container_insert(cont, x, y  , 0x076, 0x00, 1);
 }
 void rule_243_255_195(RULE_ARG(cont, x, y)){ // 平原
-    container_insert(cont, x, y, 0x076, 0x00, 0);
+    panel_container_insert(cont, x, y, 0x076, 0x00, 0);
 }
 void rule_157_221_225(RULE_ARG(cont, x, y)){ // 水
-    container_insert(cont, x, y, 0x041, 0x00, 0);
+    panel_container_insert(cont, x, y, 0x041, 0x00, 0);
 }
 void rule_255_229_147(RULE_ARG(cont, x, y)){ // 道
-    container_insert(cont, x, y, 0x016, 0x00, 0);
+
+    panel_container_insert_9(cont, x, y, 0x01, 0,
+        0x005, 0x015, 0x025,
+        0x006, 0x016, 0x026,
+        0x007, 0x017, 0x027,
+        0x013, 0x003,
+        0x004, 0x014
+        );
+    
+
 }
 void rule_181_227_167(RULE_ARG(cont, x, y)){ // 草原
-    container_insert(cont, x, y, 0x040, 0x02, 0);
-    container_insert(cont, x, y, 0x030, 0x01, 0);
-    container_insert(cont, x, y, 0x076, 0x00, 0);
+    panel_container_insert(cont, x, y, 0x040, 0x03, 0);
+    panel_container_insert(cont, x, y, 0x030, 0x02, 0);
+    panel_container_insert(cont, x, y, 0x076, 0x00, 0);
 }
 void rule_otherwise(RULE_ARG(cont, x, y)){
-    container_insert(cont, x, y, 0x000, 0x00, 1);
+    panel_container_insert(cont, x, y, 0x000, 0x00, 1);
 }
 
